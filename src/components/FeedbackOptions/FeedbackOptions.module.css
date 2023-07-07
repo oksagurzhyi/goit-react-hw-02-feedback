@@ -1,0 +1,13 @@
+.BtnContainer {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+.btnFeedback {
+  display: block;
+  width: 100px;
+  height: 45px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
