@@ -1,6 +1,7 @@
 import React from 'react';
 import { Notification } from 'components/Notification/Notification';
 import css from './Statistics.module.css';
+import PropTypes from 'prop-types';
 
 export const Statistics = ({ state, title }) => {
   const totalFeedback = state.good + state.neutral + state.bad;
@@ -24,4 +25,9 @@ export const Statistics = ({ state, title }) => {
       )}
     </>
   );
+};
+
+Statistics.propTypes = {
+  state: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 };
