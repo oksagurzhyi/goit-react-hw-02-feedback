@@ -1,33 +1,32 @@
 import React from 'react';
-import { Notification } from 'components/Notification/Notification';
+
 import css from './Statistics.module.css';
 import PropTypes from 'prop-types';
 
-export const Statistics = ({ state, title }) => {
-  const totalFeedback = state.good + state.neutral + state.bad;
-  const positiveFeedback = ((state.good / totalFeedback) * 100).toFixed(1);
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return (
-    <>
-      <h1 className={css.statTitle}>{title}</h1>
-
-      {totalFeedback > 0 ? (
-        <div>
-          <p className={css.textStatistics}> Good: {state.good}</p>
-          <p className={css.textStatistics}> Neutral: {state.neutral}</p>
-          <p className={css.textStatistics}> Bad: {state.bad}</p>
-          <p className={css.textStatistics}>Total: {totalFeedback} </p>
-          <p className={css.textStatistics}>
-            Positive feedback: {positiveFeedback}%
-          </p>
-        </div>
-      ) : (
-        <Notification message="No feedback given" />
-      )}
-    </>
+    <div>
+      <p className={css.textStatistics}> Good: {good}</p>
+      <p className={css.textStatistics}> Neutral: {neutral}</p>
+      <p className={css.textStatistics}> Bad: {bad}</p>
+      <p className={css.textStatistics}>Total: {total} </p>
+      <p className={css.textStatistics}>
+        Positive feedback: {positivePercentage}%
+      </p>
+    </div>
   );
 };
 
 Statistics.propTypes = {
-  state: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
 };
